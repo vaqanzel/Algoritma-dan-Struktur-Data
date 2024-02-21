@@ -25,7 +25,6 @@ public class buku27 {
             System.out.println("Stok habis. Tidak dapat melakukan penjualan.");
         }
     }
-    
     void restock(int jml){
         stok += jml;
     }
