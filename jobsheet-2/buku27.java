@@ -14,9 +14,18 @@ public class buku27 {
          System.out.println("Sisa Stok: " + stok);
          System.out.println("Harga: Rp " + harga);
     }
-    void terjual(int jml){
-        stok -= jml;
-    }   
+    // void terjual(int jml){
+    //     stok -= jml;
+    // }   
+    //modifikasi
+    void terjual(int jml) {
+        if (stok > 0) { 
+            stok -= jml; 
+        } else {
+            System.out.println("Stok habis. Tidak dapat melakukan penjualan.");
+        }
+    }
+    
     void restock(int jml){
         stok += jml;
     }
