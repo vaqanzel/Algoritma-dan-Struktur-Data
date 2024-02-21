@@ -6,6 +6,23 @@ public class buku27 {
     int halaman;
     int stok;
     int harga;
+
+    // konstruktor default
+public buku27() {
+    judul = "";
+    pengarang = "";
+    halaman = 0;
+    stok = 0;
+    harga = 0;
+}
+    // konstruktro berparamenter
+public buku27(String jud, String pg, int hal, int stok, int har){
+    judul =jud;
+    pengarang =pg;
+    halaman = hal;
+    this.stok = stok;
+    harga = har;
+    }
     //deklarasi method
     void tampilInformasi() {
          System.out.println("Judul: " + judul);
