@@ -15,7 +15,7 @@ public buku27() {
     stok = 0;
     harga = 0;
 }
-    // konstruktro berparamenter
+    // konstruktor berparamenter
 public buku27(String jud, String pg, int hal, int stok, int har){
     judul =jud;
     pengarang =pg;

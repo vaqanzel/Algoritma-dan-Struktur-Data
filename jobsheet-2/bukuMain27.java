@@ -16,5 +16,10 @@ public static void main (String[] args) {
     buku27 bk2 = new buku27("Self Reward", "Maheera Ayesha", 160, 29, 59000);
     bk2.terjual(11);
     bk2.tampilInformasi();
-}
+
+// membuat objek baru dengan konstruktor berparameter
+    buku27 buku = new buku27("Laut Bercerita", "Leila S. Chudori ", 200, 50, 85000);
+    buku.tampilInformasi();
+
+ }
 }
