@@ -11,6 +11,16 @@ public static void main (String[] args) {
     bk1.terjual(5);
     bk1.gantiHarga(60000);
     bk1.tampilInformasi();
+
+    int jml = 10;
+    int hargaTotal = bk1.hitungHargaTotal(jml);
+    double diskon = bk1.hitungDiskon(hargaTotal);
+    double hargaBayar = bk1.hitungHargaBayar(hargaTotal, diskon);
+
+    System.out.println("Harga Total: " + hargaTotal);
+    System.out.println("Diskon: " + diskon * 100 + "100%");
+    System.out.println("Harga Bayar: " + hargaBayar);
+    System.out.println();
    
 //objek bk2 menggunakan konstruktor berparamenter
     buku27 bk2 = new buku27("Self Reward", "Maheera Ayesha", 160, 29, 59000);
