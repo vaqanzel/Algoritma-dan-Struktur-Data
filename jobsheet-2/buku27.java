@@ -48,4 +48,35 @@ public buku27(String jud, String pg, int hal, int stok, int har){
     void gantiHarga(int hrg){
         harga = hrg;
     }
+    
+    void hitungHargaTotal(int hargaTotal) {
+       hargaTotal = harga * stok;
+        System.out.println("Harga Total: Rp " + hargaTotal);
+    }
+    void hitungDiskon(int hargaTotal) {
+       hargaTotal = harga * stok;
+        double diskon = 0;
+        if (hargaTotal > 150000) {
+            diskon = 0.12 * hargaTotal; 
+        } else if (hargaTotal >= 75000 && hargaTotal <= 150000) {
+            diskon = 0.05 * hargaTotal; 
+        }
+         System.out.println("Diskon: Rp " + diskon);
+    }
+    void hitungHargaBayar(int hargaTotal){
+       hargaTotal = harga * stok;
+       double diskon = 0;
+       double hargaBayar = hargaTotal;
+       if (hargaTotal > 150000){
+        diskon = 0.12 * hargaTotal; 
+    } else if (hargaTotal >= 75000 && hargaTotal <= 150000) {
+        diskon = 0.05 * hargaTotal; 
+        hargaBayar -= diskon;
+    }
+       System.out.println("Harga Bayar: Rp " + hargaBayar);
+    }
 }
+    
+    
+    
+        
