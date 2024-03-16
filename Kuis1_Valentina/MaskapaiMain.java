@@ -23,6 +23,10 @@ public class MaskapaiMain {
             maskapai[i] = new Maskapai27(nomor, tujuan, tiket, tersedia, terdaftar);
         }
 
+        // System.out.println("Sisa Kursi yang tersedia: ");
+        // Maskapai27 sisaKursi = Maskapai27.hitungSisaKursi();
+        // sisaKursi.tampilInformasi();
+
         System.out.println("\nInformasi Maskapai Paling Sepi:");
         Maskapai27 maskapaiPalingSepi = Maskapai27.cariMaskapaiPalingSepi(maskapai);
         maskapaiPalingSepi.tampilInformasi();
