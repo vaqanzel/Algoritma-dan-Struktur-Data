@@ -22,5 +22,9 @@ public class Main {
         System.out.println("Data mahasiswa setelah sorting desc berdasarkan ipk");
         list.bubbleSort();
         list.tampil();
+
+        System.out.println("Data mahasiswa setelah sorting asc berdaasarkan ipk");
+        list.selectionSort();
+        list.tampil();
     }
 }
