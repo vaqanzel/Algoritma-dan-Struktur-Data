@@ -46,5 +46,13 @@ public class BukuMain27 {
         int posisi = data.FindSeqSearch(cari);
         data.Tampilposisi(cari, posisi);
         data.TampilData(cari, posisi);
+
+        Buku27 dataBuku = data.FindBuku(cari);
+               if (dataBuku != null) {
+                   dataBuku.tampilDataBuku();
+               } else {
+        System.out.println("Buku dengan kode " + cari + " tidak ditemukan.");
+        }
+
     }
 }
