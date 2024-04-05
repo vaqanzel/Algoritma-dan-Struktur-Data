@@ -15,7 +15,7 @@ public class BukuMain27 {
         for (int i = 0; i < jumBuku; i++) {
             System.out.println("-------------------");
             System.out.print("Kode Buku \t: ");
-            int kodeBuku = s.nextInt();
+            String kodeBuku = s.nextLine(); 
             System.out.print("Judul buku \t: ");
             String judulBuku = s1.nextLine();
             System.out.print("Tahun Terbit \t: ");
@@ -25,7 +25,7 @@ public class BukuMain27 {
             System.out.print("Stock     \t: ");
             int stock = s.nextInt();
 
-            Buku27 m = new Buku27(kodeBuku, judulBuku, tahunTerbit, pengarang, stock);
+            Buku27 m = new Buku27(kodeBuku, judulBuku, tahunTerbit, pengarang, stock); // Menggunakan constructor dengan String
             data.tambah(m);
         }
 
@@ -41,24 +41,24 @@ public class BukuMain27 {
         System.out.println("Pencarian Data : ");
         System.out.println("Masukkan Kode Buku yang dicari: ");
         System.out.print("Kode Buku : ");
-        int cari = s.nextInt();
+        String cari = s.nextLine(); // Mengubah input menjadi String
         System.out.println("Menggunakan sequential Search");
-        int posisi = data.FindSeqSearch(cari);
-        data.Tampilposisi(cari, posisi);
-        data.TampilData(cari, posisi);
+        int posisi = data.FindSeqSearch(cari); // Memanggil metode pencarian dengan String
+        data.Tampilposisi(Integer.parseInt(cari), posisi); // Mengubah kembali ke int untuk menampilkan output
+        data.TampilData(Integer.parseInt(cari), posisi);
 
         Buku27 dataBuku = data.FindBuku(cari);
-               if (dataBuku != null) {
-                   dataBuku.tampilDataBuku();
-               } else {
-        System.out.println("Buku dengan kode " + cari + " tidak ditemukan.");
+        if (dataBuku != null) {
+            dataBuku.tampilDataBuku();
+        } else {
+            System.out.println("Buku dengan kode " + cari + " tidak ditemukan.");
         }
 
-         //Percobaan2
-         System.out.println("===============================");
-         System.out.println("menggunakan binary search");
-         posisi = data.FindBinarySearch(cari, 0, jumBuku - 1);
-         data.Tampilposisi(cari, posisi);
-         data.TampilData(cari, posisi);
+        //Percobaan2
+        System.out.println("===============================");
+        System.out.println("menggunakan binary search");
+        posisi = data.FindBinarySearch(cari, 0, jumBuku - 1);
+        data.Tampilposisi(Integer.parseInt(cari), posisi); // Mengubah kembali ke int untuk menampilkan output
+        data.TampilData(Integer.parseInt(cari), posisi);
     }
 }
