@@ -59,15 +59,16 @@ public Buku27 FindBuku(int cari) {
     return null;
 }
 //Percobaan 2
-public int FindBinarySearch(int cari, int left, int right){
-    if (right >= left){
+public int FindBinarySearch(int cari, int left, int right) {
+    if (right >= left) {
         int mid = left + (right - left) / 2;
-        if (listBk[mid].kodeBuku == cari){
+        if (listBk[mid].kodeBuku == cari) {
             return mid;
-        } if (listBk[mid].kodeBuku > cari){
-            return FindBinarySearch(cari, left, mid - 1);
+        }
+        if (listBk[mid].kodeBuku < cari) {
+            return FindBinarySearch(cari, left, mid - 1); 
         } else {
-            return FindBinarySearch(cari, mid + 1, right);
+            return FindBinarySearch(cari, mid + 1, right); 
         }
     }
     return -1;
