@@ -1,6 +1,8 @@
+
 package TestSearching.P7;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class BukuMain27 {
     public static void main(String[] args) {
@@ -43,21 +45,13 @@ public class BukuMain27 {
         System.out.print("Judul Buku : ");
         String cariJudul = s1.nextLine();
         System.out.println("Menggunakan sequential Search");
-        int posisiJudul = data.FindSeqSearch(cariJudul);
-        data.Tampilposisi(cariJudul, posisiJudul);
-        data.TampilData(cariJudul, posisiJudul);
+        ArrayList<Integer> positions = data.FindAllSeqSearch(cariJudul);
+        data.TampilMultipleData(cariJudul, positions);
 
-        Buku27 dataBukuJudul = data.FindBuku(cariJudul);
-        if (dataBukuJudul != null) {
-            dataBukuJudul.tampilDataBuku();
-        } else {
-            System.out.println("Buku dengan judul " + cariJudul + " tidak ditemukan.");
-        }
-
-        //Percobaan2
+        //Pencarian menggunakan binary search
         System.out.println("===============================");
-        System.out.println("menggunakan binary search");
-        posisiJudul = data.FindBinarySearch(cariJudul);
+        System.out.println("Menggunakan binary search");
+        int posisiJudul = data.FindBinarySearch(cariJudul);
         data.Tampilposisi(cariJudul, posisiJudul);
         data.TampilData(cariJudul, posisiJudul);
     }
