@@ -1,6 +1,6 @@
 package TestSearching.P7;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class PencarianBuku27 {
     Buku27 listBk[] = new Buku27[5];
@@ -21,28 +21,26 @@ public class PencarianBuku27 {
         }
     }
 
-    public int FindSeqSearch(String cari){
-        int posisi = -1;
-        for (int j = 0; j < listBk.length; j++){
-            if (listBk[j].kodeBuku.equals(cari)){
-                posisi = j;
-                break;
+    public int FindSeqSearch(String cari) {
+        for (int j = 0; j < idx; j++) {
+            if (listBk[j].judulBuku.equalsIgnoreCase(cari)) {
+                return j;
             }
         }
-        return posisi;
+        return -1;
     }
 
-    public void Tampilposisi(String x, int pos){
+    public void Tampilposisi(String x, int pos) {
         if (pos != -1){
             System.out.println("Data : "+ x + " ditemukan pada indeks " + pos);
-        }else{
+        } else {
             System.out.println("Data "+ x + " tidak ditemukan");
         }
     }
 
-    public void TampilData(String x, int pos){
-        if(pos!= -1){
-            System.out.println("Kode Buku\t : " + x );
+    public void TampilData(String x, int pos) {
+        if(pos != -1){
+            System.out.println("Kode Buku\t : " + listBk[pos].kodeBuku );
             System.out.println("Judul\t         : " + listBk[pos].judulBuku);
             System.out.println("Tahun Terbit\t  : " + listBk[pos].tahunTerbit);
             System.out.println("Pengarang\t     : " + listBk[pos].pengarang);
@@ -53,24 +51,41 @@ public class PencarianBuku27 {
     }
 
     public Buku27 FindBuku(String cari) {
-        for (int j = 0; j < listBk.length; j++) {
-            if (listBk[j].kodeBuku.equals(cari)) {
+        for (int j = 0; j < idx; j++) {
+            if (listBk[j].judulBuku.equalsIgnoreCase(cari)) {
                 return listBk[j];
             }
         }
         return null;
     }
 
-    public int FindBinarySearch(String cari, int left, int right) {
-        if (right >= left) {
-            int mid = left + (right - left) / 2;
-            if (listBk[mid].kodeBuku.equals(cari)) {
-                return mid;
+    public void bubbleSort() {
+        for (int i = 0; i < idx - 1; i++) {
+            for (int j = 0; j < idx - i - 1; j++) {
+                if (listBk[j].judulBuku.compareToIgnoreCase(listBk[j + 1].judulBuku) > 0) {
+                    Buku27 temp = listBk[j];
+                    listBk[j] = listBk[j + 1];
+                    listBk[j + 1] = temp;
+                }
             }
-            if (listBk[mid].kodeBuku.compareTo(cari) > 0) {
-                return FindBinarySearch(cari, left, mid - 1); 
+        }
+    }
+
+    
+    public int FindBinarySearch(String cari) {
+        bubbleSort();
+        int left = 0;
+        int right = idx - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            int result = listBk[mid].judulBuku.compareToIgnoreCase(cari);
+            if (result == 0) {
+                return mid;
+            } else if (result < 0) {
+                left = mid + 1;
             } else {
-                return FindBinarySearch(cari, mid + 1, right); 
+                right = mid - 1;
             }
         }
         return -1;

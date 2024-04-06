@@ -1,4 +1,5 @@
 package TestSearching.P7;
+
 import java.util.Scanner;
 
 public class BukuMain27 {
@@ -28,6 +29,9 @@ public class BukuMain27 {
             data.tambah(m);
         }
 
+        // Mengurutkan data buku sebelum melakukan pencarian binary search
+        data.bubbleSort();
+
         System.out.println("---------------------------------------------------------------");
         System.out.println("Data keseluruhan Buku : ");
         data.tampil();
@@ -35,26 +39,26 @@ public class BukuMain27 {
         System.out.println("------------------------------------------------------------------------- ");
         System.out.println("-------------------------------------------------------------------------");
         System.out.println("Pencarian Data : ");
-        System.out.println("Masukkan Kode Buku yang dicari: ");
-        System.out.print("Kode Buku : ");
-        String cari = s1.nextLine();
+        System.out.println("Masukkan Judul Buku yang dicari: ");
+        System.out.print("Judul Buku : ");
+        String cariJudul = s1.nextLine();
         System.out.println("Menggunakan sequential Search");
-        int posisi = data.FindSeqSearch(cari);
-        data.Tampilposisi(cari, posisi);
-        data.TampilData(cari, posisi);
+        int posisiJudul = data.FindSeqSearch(cariJudul);
+        data.Tampilposisi(cariJudul, posisiJudul);
+        data.TampilData(cariJudul, posisiJudul);
 
-        Buku27 dataBuku = data.FindBuku(cari);
-        if (dataBuku != null) {
-            dataBuku.tampilDataBuku();
+        Buku27 dataBukuJudul = data.FindBuku(cariJudul);
+        if (dataBukuJudul != null) {
+            dataBukuJudul.tampilDataBuku();
         } else {
-            System.out.println("Buku dengan kode " + cari + " tidak ditemukan.");
+            System.out.println("Buku dengan judul " + cariJudul + " tidak ditemukan.");
         }
 
         //Percobaan2
         System.out.println("===============================");
         System.out.println("menggunakan binary search");
-        posisi = data.FindBinarySearch(cari, 0, jumBuku - 1);
-        data.Tampilposisi(cari, posisi);
-        data.TampilData(cari, posisi);
+        posisiJudul = data.FindBinarySearch(cariJudul);
+        data.Tampilposisi(cariJudul, posisiJudul);
+        data.TampilData(cariJudul, posisiJudul);
     }
 }
