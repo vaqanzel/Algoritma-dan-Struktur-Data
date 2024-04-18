@@ -1,20 +1,24 @@
-
 import java.util.Scanner;
 
 public class Utama27 {
     public static void main(String[] args) {
-        Gudang27 gudang = new Gudang27(7);
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Masukkan kapasitas gudang: ");
+        int kapasitas = scanner.nextInt();
+        scanner.nextLine(); 
+
+        Gudang27 gudang = new Gudang27(kapasitas);
 
         while (true) {
             System.out.println("\nMenu:");
             System.out.println("1. Tambah barang");
             System.out.println("2. Ambil barang");
             System.out.println("3. Tampilkan tumpukan barang");
-            System.out.println("4. Keluar");
+            System.out.println("4. Lihat barang teratas");
+            System.out.println("5. Keluar");
             System.out.print("Pilih operasi: ");
             int pilihan = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); 
 
             switch (pilihan) {
                 case 1:
@@ -35,7 +39,11 @@ public class Utama27 {
                     gudang.tampilkanBarang();
                     break;
                 case 4:
+                    gudang.lihatBarangTeratas();
+                    break;
+                case 5:
                     System.exit(0);
+                    break;
                 default:
                     System.out.println("Pilihan tidak valid. Silakan coba lagi.");
             }
