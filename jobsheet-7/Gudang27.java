@@ -10,20 +10,13 @@ public class Gudang27 {
     }
 
     public boolean cekKosong() {
-        if (top == -1){
-            return true;
-        }else {
         return top == -1;
-    }
     }
 
     public boolean cekPenuh() {
-        if (top == size-1){
-            return true;
-        }else {
-        return false;
+        return top == size - 1;
     }
-    }
+
     public void tambahBarang(Barang27 brg) {
         if (!cekPenuh()) {
             top++;
@@ -47,7 +40,7 @@ public class Gudang27 {
     }
 
     public Barang27 lihatBarangTeratas() {
-        if (!isEmpty()) {
+        if (!cekKosong()) {
             Barang27 barangTeratas = tumpukan[top];
             System.out.println("Barang teratas: " + barangTeratas.nama);
             return barangTeratas;
@@ -60,8 +53,7 @@ public class Gudang27 {
     public void tampilkanBarang() {
         if (!cekKosong()) {
             System.out.println("Rincian tumpukan barang di Gudang: ");
-            //for (int i = top; i >= 0; i--) {
-            for (int i = 0 i <= 0; i++) {
+            for (int i = top; i >= 0; i--) {
                 System.out.printf("Kode %d: %s (Kategori %s)\n", tumpukan[i].kode, tumpukan[i].nama, tumpukan[i].kategori);
             }
         } else {

@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Utama27 {
@@ -34,7 +35,7 @@ public class Utama27 {
                     gudang.tampilkanBarang();
                     break;
                 case 4:
-                    break;
+                    System.exit(0);
                 default:
                     System.out.println("Pilihan tidak valid. Silakan coba lagi.");
             }
