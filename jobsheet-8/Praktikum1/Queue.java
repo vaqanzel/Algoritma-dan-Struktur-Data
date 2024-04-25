@@ -54,9 +54,23 @@ public class Queue {
         }
     }
 
+    // public void enqueue(int dt) {
+    //     if (isFull()) {
+    //         System.out.println("Queue sudah penuh");
+    //     } else {
+    //         if (isEmpty()) {
+    //             front = rear = 0;
+    //         } else {
+    //             rear = (rear + 1) % max;
+    //         }
+    //         data[rear] = dt;
+    //         size++;
+    //     }
+    // }
     public void enqueue(int dt) {
         if (isFull()) {
-            System.out.println("Queue sudah penuh");
+            System.out.println("Queue sudah penuh (queue overflow)! Tidak dapat menambahkan elemen baru.");
+            System.exit(1); 
         } else {
             if (isEmpty()) {
                 front = rear = 0;
@@ -68,19 +82,36 @@ public class Queue {
         }
     }
 
-    public int dequeue() {
-        int dt = 0;
-        if (isEmpty()) {
-            System.out.println("Queue masih kosong");
-        } else {
-            dt = data[front];
-            size--;
-            if (isEmpty()) {
-                front = rear = -1;
+//     public int dequeue() {
+//         int dt = 0;
+//         if (isEmpty()) {
+//             System.out.println("Queue masih kosong");
+//         } else {
+//             dt = data[front];
+//             size--;
+//             if (isEmpty()) {
+//                 front = rear = -1;
+//             } else {
+//                 front = (front + 1) % max;
+//             }
+//         }
+//         return dt;
+//     }
+// }
+        public int dequeue() {
+            int dt = 0;
+             if (isEmpty()) {
+                System.out.println("Queue masih kosong (queue underflow)! Tidak dapat mengeluarkan elemen.");
+                System.exit(1);
             } else {
-                front = (front + 1) % max;
+                dt = data[front];
+                size--;
+                if (isEmpty()) {
+                    front = rear = -1;
+                 } else {
+                     front = (front + 1) % max;
+                      }
+               }
+               return dt;
             }
-        }
-        return dt;
-    }
 }
