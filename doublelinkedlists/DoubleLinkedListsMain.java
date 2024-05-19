@@ -1,6 +1,7 @@
 public class DoubleLinkedListsMain {
     public static void main(String[] args) throws Exception{
 
+        
         DoubleLinkedLists dll = new DoubleLinkedLists();
         dll.print();
         System.out.println("Size : "+dll.size());

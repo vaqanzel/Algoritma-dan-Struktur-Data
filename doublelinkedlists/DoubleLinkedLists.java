@@ -113,6 +113,7 @@ public void addLast(int item){
     size--;
  }
 
+ 
  public void remove(int index) throws Exception{
     if (isEmpty() || index >= size) {
         throw new Exception("Nilai indeks di luar batas");
