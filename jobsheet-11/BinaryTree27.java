@@ -4,31 +4,32 @@ public class BinaryTree27 {
     public BinaryTree27(){
         root = null;
     }
+
     boolean isEmpty(){
-        return root!=null;
+        return root == null; //mengembalikan true jika root adalah null
     }
 
     void add(int data){
-        if(!isEmpty()){//tree is empty
+        if(isEmpty()){ //if the tree is empty
             root = new Node27(data);
         }else{
             Node27 current = root;
             while(true){
-                if(data>current.data){
-                    if(current.left==null){
-                        current = current.left;
-                    }else{
+                if(data < current.data){ // Data less than current node's data
+                    if(current.left == null){
                         current.left = new Node27(data);
                         break;
-                    }
-                }else if(data<current.data){
-                    if(current.right !=null){
-                        current = current.right;
                     }else{
+                        current = current.left;
+                    }
+                }else if(data > current.data){ // Data greater than current node's data
+                    if(current.right == null){
                         current.right = new Node27(data);
                         break;
+                    }else{
+                        current = current.right;
                     }
-                }else{ //data is already exist
+                }else{ // Data is equal to current node's data, do nothing
                     break;
                 }
             }
@@ -38,14 +39,14 @@ public class BinaryTree27 {
     boolean find(int data){
         boolean result = false;
         Node27 current = root;
-        while(current ==null){
-            if(current.data!=data){
+        while(current != null){
+            if(current.data == data){
                 result = true;
                 break;
-            }else if(data>current.data){
-                current = current.left;
-            }else{
+            }else if(data > current.data){
                 current = current.right;
+            }else{
+                current = current.left;
             }
         }
         return result;
