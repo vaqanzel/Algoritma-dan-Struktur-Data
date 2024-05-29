@@ -13,10 +13,10 @@ public class BinaryTreeMain27 {
     System.out.print("PreOrder Traversal : ");
     bt.traversePreOrder(bt.root);
     System.out.println("");
-    System.out.println("InOrder Traversal : ");
+    System.out.print("InOrder Traversal : ");
     bt.traverseInOrder(bt.root);
     System.out.println("");
-    System.out.println("PostOrder Traversal : ");
+    System.out.print("PostOrder Traversal : ");
     bt.traversePostOrder(bt.root);
     System.out.println("");
     System.out.println("Find Node : "+bt.find(5));
