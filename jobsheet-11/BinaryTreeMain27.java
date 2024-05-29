@@ -23,7 +23,7 @@ public class BinaryTreeMain27 {
     System.out.println("Delete Node 8 ");
     bt.delete(8);
     System.out.println("");
-    System.out.println("PreOrder Traversal : ");
+    System.out.print("PreOrder Traversal : ");
     bt.traversePreOrder(bt.root);
     System.out.println("");
 }
