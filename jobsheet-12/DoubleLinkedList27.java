@@ -22,6 +22,17 @@ public class DoubleLinkedList27 {
         size++;
     }
 
+    public int get(int index) throws Exception {
+        if (isEmpty() || index >= size) {
+            throw new Exception("Nilai indeks di luar batas");
+        }
+        Node27 tmp = head;
+        for (int i = 0; i < index; i++) {
+            tmp = tmp.next;
+        }
+        return tmp.data;
+    }
+
     public int getJarak(int index) throws Exception {
         if (isEmpty() || index >= size) {
             throw new Exception("Nilai indeks di luar batas");
@@ -45,11 +56,11 @@ public class DoubleLinkedList27 {
                 if (current.next != null) {
                     current.next.prev = current.prev;
                 }
+                size--;
                 break;
             }
             current = current.next;
         }
-        size--;
     }
 
     public void clear() {
@@ -59,16 +70,5 @@ public class DoubleLinkedList27 {
 
     public int size() {
         return size;
-    }
-
-    public int get(int index) throws Exception {
-        if (isEmpty() || index >= size) {
-            throw new Exception("Nilai indeks di luar batas");
-        }
-        Node27 tmp = head;
-        for (int i = 0; i < index; i++) {
-            tmp = tmp.next;
-        }
-        return tmp.data;
     }
 }
