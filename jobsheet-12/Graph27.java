@@ -1,3 +1,7 @@
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Graph27 {
     int vertex;
     DoubleLinkedList27 list[];
@@ -56,5 +60,30 @@ public class Graph27 {
             }
         }
         System.out.println("");
+    }
+
+    public boolean cekJalur(int asal, int tujuan) throws Exception {
+        boolean[] dikunjungi = new boolean[vertex];
+        Queue<Integer> queue = new LinkedList<>();
+        dikunjungi[asal] = true;
+        queue.add(asal);
+
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            if (node == tujuan) {
+                return true;
+            }
+
+            for (int i = 0; i < list[node].size(); i++) {
+                int tetangga = list[node].get(i);
+
+                if (!dikunjungi[tetangga]) {
+                    dikunjungi[tetangga] = true;
+                    queue.add(tetangga);
+                }
+            }
+        }
+
+        return false;
     }
 }
