@@ -30,4 +30,25 @@ public class GraphMatriks27 {
             System.out.println();
         }
     }
+    public void degree(int node) {
+        int inDegree = 0;
+        int outDegree = 0;
+
+        // outDegree
+        for (int j = 0; j < vertex; j++) {
+            if (matriks[node][j] != 0) {
+                outDegree++;
+            }
+        }
+        // inDegree
+        for (int i = 0; i < vertex; i++) {
+            if (matriks[i][node] != 0) {
+                inDegree++;
+            }
+        }
+
+        System.out.println("InDegree dari Gedung " + (char) ('A' + node) + ": " + inDegree);
+        System.out.println("OutDegree dari Gedung " + (char) ('A' + node) + ": " + outDegree);
+        System.out.println("Degree dari Gedung " + (char) ('A' + node) + ": " + (inDegree + outDegree));
+    }
 }

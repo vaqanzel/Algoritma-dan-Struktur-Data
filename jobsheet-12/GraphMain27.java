@@ -42,8 +42,15 @@ public class GraphMain27 {
         gdg.makeEdge(2, 3, 40);
         gdg.makeEdge(3, 0, 90);
         gdg.printGraph();
+        for (int i = 0; i < 4; i++) {
+            gdg.degree(i);
+        }
         System.out.println("Hasil setelah penghapusan edge");
         gdg.removeEdge(2, 1);
         gdg.printGraph();
+
+        for (int i = 0; i < 4; i++) {
+            gdg.degree(i);
+        }
     }
 }
